@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+title: GPT-4 in Summarizing Terms of Service Documents
+message: >-
+  If you use this software, please cite it using the metadata from this file.
+
+
+type: software
+authors:
+  - given-names: Cheung
+    family-names: Ka Pui
+    email: research@kapui.net
+    orcid: "https://orcid.org/0009-0002-0618-3402"
+identifiers:
+  - type: url
+    value: "https://github.com/kapuic/gpt-tos"
+    description: GitHub
+repository-code: "https://github.com/kapuic/gpt-tos"
+url: "https://github.com/kapuic/gpt-tos"
+abstract: >-
+  This project aims to assess the effectiveness of GPT-4 in summarizing key points from Terms of Service (ToS) documents. By doing so, it seeks to address the challenges of accessibility and comprehension that internet service users often encounter. The project employs a diverse dataset of ToS documents drawn from various online services.
+
+
+keywords:
+  - Terms of Service
+  - Large Language Models
+  - GPT-4
+  - Text Summarization
+  - Readability
+  - Legal Documents
+  - Natural Language Processing
+  - User Rights
+  - Policy Analysis
+  - Artificial Intelligence
+license: MIT

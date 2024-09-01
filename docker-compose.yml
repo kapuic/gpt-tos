@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  database:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: gpt_tos
+    ports:
+      - 127.0.0.1:5432:5432
+    volumes:
+      - data:/var/lib/postgresql/data
+      - ./database.sql:/database.sql
+  grafana:
+    image: grafana/grafana-enterprise
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - grafana:/var/lib/grafana
+    user: "$UID:$GID"
+
+volumes:
+  data:
+  grafana:

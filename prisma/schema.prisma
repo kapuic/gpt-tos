@@ -1,0 +1,105 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Prompt {
+  id Decimal @id
+
+  model        String
+  messagesHash Decimal
+
+  messages Json
+  params   Json
+
+  runs Run[]
+
+  createdAt DateTime @default(now())
+}
+
+model Service {
+  id Int @id
+
+  documents Document[]
+
+  createdAt DateTime @default(now())
+}
+
+model Sample {
+  id   String  @id
+  name String?
+
+  documents Document[]
+
+  createdAt DateTime @default(now())
+}
+
+model Document {
+  url String @id
+
+  service   Service @relation(fields: [serviceId], references: [id])
+  serviceId Int
+
+  content    String
+  rawContent String
+
+  characterCount        Int?
+  wordCount             Int?
+  syllableCount         Int?
+  polysyllabicWordCount Int?
+
+  smog              Float?
+  fleschKincaid     Float?
+  fleschReadingEase Float?
+  gunningFog        Float?
+  colemanLiau       Float?
+  daleChall         Float?
+
+  sentences Json?
+
+  samples   Sample[]
+  summaries Summary[]
+
+  createdAt DateTime @default(now())
+}
+
+model Run {
+  id   String  @id
+  name String?
+
+  prompt   Prompt  @relation(fields: [promptId], references: [id])
+  promptId Decimal
+
+  startedAt  DateTime  @default(now())
+  finishedAt DateTime?
+
+  summaries Summary[]
+}
+
+model Summary {
+  document    Document @relation(fields: [documentUrl], references: [url])
+  documentUrl String
+  run         Run      @relation(fields: [runId], references: [id])
+  runId       String
+
+  clauses String[]
+
+  bleuScore          Float?
+  f1Score            Float?
+  truePositiveCount  Int?
+  falsePositiveCount Int?
+  falseNegativeCount Int?
+  precision          Float?
+  recall             Float?
+
+  createdAt DateTime @default(now())
+
+  @@id([documentUrl, runId])
+}
