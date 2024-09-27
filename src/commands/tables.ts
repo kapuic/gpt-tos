@@ -1,4 +1,5 @@
 import prompts from "prompts";
+
 import { Script } from "../utils/commands";
 import LogUtils from "../utils/log";
 

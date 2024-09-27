@@ -1,7 +1,8 @@
+import { PrismaClient } from "@prisma/client";
 import chalk from "chalk";
 import prompts from "prompts";
+
 import LogUtils from "./log";
-import { PrismaClient } from "@prisma/client";
 
 export namespace Script {
   export async function describe(title: string, description: string) {

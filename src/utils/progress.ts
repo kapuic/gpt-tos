@@ -1,5 +1,6 @@
-import ora, { type Ora } from "ora";
 import { SingleBar } from "cli-progress";
+import ora, { type Ora } from "ora";
+
 import { toSeconds } from "./common.js";
 import ErrorUtils from "./error.js";
 

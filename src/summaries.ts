@@ -1,6 +1,9 @@
 import type { Document } from "@prisma/client";
+
 import { bleu } from "bleu-score";
+
 import type { FullService } from "./schemas";
+
 import { getFullService, getServicePointsForDocument } from "./services";
 
 export async function analyzeSummary(

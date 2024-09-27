@@ -1,6 +1,7 @@
 import chalk from "chalk";
 import { table } from "table";
 import { z } from "zod";
+
 import LogUtils from "../utils/log.js";
 
 const casesSchema = z.array(

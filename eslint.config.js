@@ -1,15 +1,15 @@
 // @ts-check
 
-import globals from "globals";
 import pluginJs from "@eslint/js";
-import tseslint from "typescript-eslint";
 import eslintConfigPrettier from "eslint-config-prettier";
+import perfectionist from "eslint-plugin-perfectionist";
 import eslintPluginUnicorn from "eslint-plugin-unicorn";
-// import importPlugin from "eslint-plugin-import";
+import globals from "globals";
+import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-  { files: ["**/*.{js,mjs,cjs,ts}"] },
   {
+    files: ["**/*.{js,mjs,cjs,ts}"],
     languageOptions: {
       globals: globals.node,
       parserOptions: {
@@ -19,26 +19,19 @@ export default tseslint.config(
         tsconfigRootDir: import.meta.dirname,
       },
     },
+    plugins: { perfectionist },
   },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
   eslintPluginUnicorn.configs["flat/recommended"],
-  // importPlugin.flatConfigs.recommended,
   eslintConfigPrettier,
   {
     rules: {
       "@typescript-eslint/no-namespace": "off",
-      "unicorn/no-process-exit": "off",
+      "perfectionist/sort-imports": "error",
       "unicorn/no-null": "off",
+      "unicorn/no-process-exit": "off",
     },
-    // settings: {
-    //   "import/resolver": {
-    //     // You will also need to install and configure the TypeScript resolver
-    //     // See also https://github.com/import-js/eslint-import-resolver-typescript#configuration
-    //     typescript: true,
-    //     node: true,
-    //   },
-    // },
   },
 );

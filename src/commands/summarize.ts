@@ -1,20 +1,21 @@
-import ora from "ora";
+import PromisePool from "@supercharge/promise-pool";
+import boxen from "boxen";
 import chalk from "chalk";
 import { encode } from "gpt-3-encoder";
-import boxen from "boxen";
+import ora from "ora";
+import prompts from "prompts";
+import shortUUID from "short-uuid";
+
 import { cases, pricingInfo } from "../consts";
-import Progress from "../utils/progress";
-import LogUtils from "../utils/log";
 import { GPTClient, GPTResponse, getContentsTokens, isGPTError } from "../gpt";
 import {
   printEnvironmentConfig as printEnvironmentConfig,
   printGPTClientInfo,
 } from "../output";
-import { Script } from "../utils/commands";
-import PromisePool from "@supercharge/promise-pool";
-import prompts from "prompts";
-import shortUUID from "short-uuid";
 import { analyzeSummary } from "../summaries";
+import { Script } from "../utils/commands";
+import LogUtils from "../utils/log";
+import Progress from "../utils/progress";
 
 const { prisma } = await Script.describe(
   "Summarizer",

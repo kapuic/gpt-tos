@@ -1,13 +1,14 @@
-import { wordsDetect } from "words-count";
-import { syllable } from "syllable";
-import { smogFormula } from "smog-formula";
-import { fleschKincaid as fleschKincaidFormula } from "flesch-kincaid";
-import { flesch as fleschFormula } from "flesch";
-import { gunningFog as gunningFogFormula } from "gunning-fog";
 import { colemanLiau as colemanLiauFormula } from "coleman-liau";
-import { daleChallFormula } from "dale-chall-formula";
-import { extract } from "./utils/sentences";
 import { daleChall as daleChallList } from "dale-chall";
+import { daleChallFormula } from "dale-chall-formula";
+import { flesch as fleschFormula } from "flesch";
+import { fleschKincaid as fleschKincaidFormula } from "flesch-kincaid";
+import { gunningFog as gunningFogFormula } from "gunning-fog";
+import { smogFormula } from "smog-formula";
+import { syllable } from "syllable";
+import { wordsDetect } from "words-count";
+
+import { extract } from "./utils/sentences";
 
 function wordsWithSyllabusOrMore(words: string[], syllabus: number) {
   return words.filter((word) => syllable(word) >= syllabus);

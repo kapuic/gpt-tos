@@ -1,8 +1,9 @@
-import chalk from "chalk";
 import boxen from "boxen";
-import LogUtils from "./utils/log";
-import { type GPTClient, getContentsLength, getContentsTokens } from "./gpt";
+import chalk from "chalk";
 import { isArray } from "lodash";
+
+import { type GPTClient, getContentsLength, getContentsTokens } from "./gpt";
+import LogUtils from "./utils/log";
 
 export interface EnvironmentConfig {
   concurrentLimit: number;

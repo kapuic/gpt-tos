@@ -1,6 +1,9 @@
+import chalk from "chalk";
 import ora from "ora";
 import pRetry from "p-retry";
 import { z } from "zod";
+
+import { Files } from "./consts";
 import {
   type PartialService,
   APISchemas,
@@ -8,8 +11,6 @@ import {
   FullService,
   fullServiceSchema,
 } from "./schemas";
-import { Files } from "./consts";
-import chalk from "chalk";
 import LogUtils from "./utils/log";
 
 export async function downloadServiceList() {

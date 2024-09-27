@@ -1,10 +1,11 @@
+import { Prisma } from "@prisma/client";
 import { encode } from "gpt-3-encoder";
 import { isObject, sum, uniq } from "lodash";
 import { ChatParams, ChatResponse, ChatMessage } from "openai-fetch";
 import { z } from "zod";
-import LogUtils from "./utils/log";
+
 import { cases } from "./consts";
-import { Prisma } from "@prisma/client";
+import LogUtils from "./utils/log";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function nullToPrismaNull<T>(object: T): any {

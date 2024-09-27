@@ -1,9 +1,10 @@
 import ora from "ora";
-import { Script } from "../utils/commands";
-import { getFullServices } from "../services";
-import LogUtils from "../utils/log";
 import prompts from "prompts";
+
+import { getFullServices } from "../services";
 import { analyzeSummary } from "../summaries";
+import { Script } from "../utils/commands";
+import LogUtils from "../utils/log";
 
 const { prisma } = await Script.describe(
   "Analyzer",

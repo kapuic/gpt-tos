@@ -1,16 +1,17 @@
+import { extract } from "@extractus/article-extractor";
+import ora from "ora";
+import pRetry from "p-retry";
 import prompts from "prompts";
-import { Script } from "../utils/commands";
+import shortUUID from "short-uuid";
+
+import { analyzeDocumentComplexity } from "../complexities";
 import {
   getFullService,
   getServiceList,
   getServicePointsForDocument,
 } from "../services";
+import { Script } from "../utils/commands";
 import LogUtils from "../utils/log";
-import shortUUID from "short-uuid";
-import ora from "ora";
-import pRetry from "p-retry";
-import { extract } from "@extractus/article-extractor";
-import { analyzeDocumentComplexity } from "../complexities";
 
 const { prisma } = await Script.describe(
   "Sampler",
